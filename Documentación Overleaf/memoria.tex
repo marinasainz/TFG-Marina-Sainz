@@ -1,0 +1,273 @@
+\documentclass[a4paper,12pt,twoside]{memoir}
+
+% Castellano
+\usepackage[spanish,es-tabla]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Scalable font
+\usepackage{microtype}
+\usepackage{placeins}
+
+\RequirePackage{booktabs}
+\RequirePackage[table]{xcolor}
+\RequirePackage{xtab}
+\RequirePackage{multirow}
+
+% Links
+\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
+\hypersetup{
+	allcolors = {red}
+}
+
+% Ecuaciones
+\usepackage{amsmath}
+
+% Rutas de fichero / paquete
+\newcommand{\ruta}[1]{{\sffamily #1}}
+
+% Párrafos
+\nonzeroparskip
+
+% Huérfanas y viudas
+\widowpenalty100000
+\clubpenalty100000
+
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+
+% Imágenes
+
+% Comando para insertar una imagen en un lugar concreto.
+% Los parámetros son:
+% 1 --> Ruta absoluta/relativa de la figura
+% 2 --> Texto a pie de figura
+% 3 --> Tamaño en tanto por uno relativo al ancho de página
+\usepackage{graphicx}
+\usepackage{subcaption}
+\newcommand{\imagen}[3]{
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=#3\textwidth]{#1}
+		\caption{#2}\label{fig:#1}
+	\end{figure}
+	\FloatBarrier
+}
+
+
+\graphicspath{ {./img/} }
+% Capítulos
+\chapterstyle{bianchi}
+\newcommand{\capitulo}[2]{
+	\setcounter{chapter}{#1}
+	\setcounter{section}{0}
+	\setcounter{figure}{0}
+	\setcounter{table}{0}
+	\chapter*{#2}
+	\addcontentsline{toc}{chapter}{#2}
+	\markboth{#2}{#2}
+}
+
+% Apéndices
+\renewcommand{\appendixname}{Apéndice}
+\renewcommand*\cftappendixname{\appendixname}
+
+\newcommand{\apendice}[1]{
+	%\renewcommand{\thechapter}{A}
+	\chapter{#1}
+}
+
+\renewcommand*\cftappendixname{\appendixname\ }
+
+% Formato de portada
+
+\makeatletter
+\usepackage{xcolor}
+\newcommand{\tutor}[1]{\def\@tutor{#1}}
+\newcommand{\tutorb}[1]{\def\@tutorb{#1}}
+
+\newcommand{\course}[1]{\def\@course{#1}}
+\definecolor{cpardoBox}{HTML}{E6E6FF}
+\def\maketitle{
+  \null
+  \thispagestyle{empty}
+  % Cabecera ----------------
+\begin{center}
+  \noindent\includegraphics[width=\textwidth]{cabeceraSalud}\vspace{1.5cm}%
+\end{center}
+  
+  % Título proyecto y escudo salud ----------------
+  \begin{center}
+    \begin{minipage}[c][1.5cm][c]{.20\textwidth}
+        \includegraphics[width=\textwidth]{escudoSalud.pdf}
+    \end{minipage}
+  \end{center}
+  
+  \begin{center}
+    \colorbox{cpardoBox}{%
+        \begin{minipage}{.8\textwidth}
+          \vspace{.5cm}\Large
+          \begin{center}
+          \textbf{TFG del Grado en Ingeniería de la Salud}\vspace{.6cm}\\
+          \textbf{\LARGE\@title{}}
+          \end{center}
+          \vspace{.2cm}
+        \end{minipage}
+    }%
+  \end{center}
+  
+    % Datos de alumno, curso y tutores ------------------
+  \begin{center}%
+  {%
+    \noindent\LARGE
+    Presentado por \@author{}\\ 
+    en la Universidad de Burgos\\
+    \vspace{0.5cm}
+    \noindent\Large
+    \@date{}\\
+    \vspace{0.5cm}
+    %Tutor: \@tutor{}\\ % comenta el que no corresponda
+    Tutores: \@tutor{} -- \@tutorb{}\\
+  }%
+  \end{center}%
+  \null
+  \cleardoublepage
+  }
+\makeatother
+
+\newcommand{\nombre}{Marina Sainz Bermejo}
+\newcommand{\nombreTutor}{Daniel Sarabia Ortiz} 
+\newcommand{\nombreTutorb}{Jesús Enrique Sierra García} 
+\newcommand{\dni}{71798718D} 
+
+% Datos de portada
+\title{Modelado dinámico de la diabetes tipo I y estudio de técnicas de control de la glucosa}
+\author{\nombre}
+\tutor{\nombreTutor}
+\tutorb{\nombreTutorb}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+
+\newpage\null\thispagestyle{empty}\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+
+
+\noindent\includegraphics[width=\textwidth]{cabeceraSalud}\vspace{1cm}
+
+\noindent D. \nombreTutor, profesor del departamento de Digitalización, área de Ingeniería de Sistemas y Automática.
+
+\noindent Expone:
+
+\noindent Que el alumno D. \nombre, con DNI \dni, ha realizado el Trabajo final de Grado en Ingeniería de la Salud titulado 'Modelado dinámico de la diabetes tipo I y estudio de técnicas de control de la glucosa'. 
+
+\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
+
+\begin{center} %\large
+En Burgos, {\large \today}
+\end{center}
+
+\vfill\vfill\vfill
+
+% Author and supervisor
+\begin{minipage}{0.45\textwidth}
+\begin{flushleft} %\large
+Vº. Bº. del Tutor:\\[2cm]
+D. \nombreTutor
+\end{flushleft}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{flushleft} %\large
+Vº. Bº. del Tutor:\\[2cm]
+D. \nombreTutorb
+\end{flushleft}
+\end{minipage}
+\hfill
+
+\vfill
+
+% para casos con solo un tutor comentar lo anterior
+% y descomentar lo siguiente
+%Vº. Bº. del Tutor:\\[2cm]
+%D. nombre tutor
+
+
+\newpage\null\thispagestyle{empty}\newpage
+
+
+
+
+\frontmatter
+
+% Abstract en castellano
+\renewcommand*\abstractname{Resumen}
+\begin{abstract}
+La combinación de la ingeniería y la biología, respaldada por la medicina, se presenta como una de las fronteras más prometedoras de la ciencia para el desarrollo de nuevas soluciones tecnológicas que supongan aumentos en la calidad de vida de pacientes con alguna patología.
+
+La Diabetes Mellitus se consolida como uno de los mayores problemas de salud a nivel mundial, y los últimos datos recogen una prevalencia del 9.3 \% para la población entre 20 y 79 años. Es por ello por lo que el avance en el estudio del funcionamiento de los mecanismos que regulan la glucosa y la insulina es crucial para el surgimiento de nuevos dispositivos médicos que permitan avanzar hacia nuevas terapias y tratamientos de la diabetes. Este estudio comienza por el modelado del comportamiento glucémico en base a ecuaciones y relaciones matemáticas, que posteriormente puedan implementarse en sistemas de control para sustituir variables, como la administración de insulina externa en el organismo de forma manual, y que pueden verse condicionadas por otras variables existentes en la vida real. 
+
+Se pretenden reflejar estas cuestiones en este análisis del comportamiento de la glucosa e insulina basado en razonamientos matemáticos, y comprobar si su estimación es similar funciomiento del organismo.
+
+\end{abstract}
+
+\renewcommand*\abstractname{Descriptores}
+\begin{abstract}
+Insulina, glucosa, sistema glucorregulatorio, diabetes mellitus, sistemas de control, modelos matemáticos, perturbaciones, simulación, control automático de la glucosa.
+\end{abstract}
+
+\clearpage
+
+% Abstract en inglés
+\renewcommand*\abstractname{Abstract}
+\begin{abstract}
+The combination of engineering and biology, supported by medicine, emerges as one of the most promising frontiers in science for the development of new technological solutions that lead to improvements in the quality of life of patients with any pathology.
+
+Diabetes Mellitus is consolidated as one of the biggest public health problems worldwide, with recent data showing a prevalence of 9.3\% for the population aged between 20 and 79 years old. This is why progress in studying mechanisms regulating glucose and insulin is crucial for the emergence of new medical devices that allow advancements towards new therapies and treatments for diabetes. This study begins by modeling glycemic behavior based on equations and mathematical relationships, which can subsequently be implemented in control systems to replace variables such as manual administration of external insulin , and which may be influenced by real-life variables.
+
+The aim is to reflect these issues in this analysis of the behavior of glucose and insulin based on mathematical reasoning, and to verify if their estimation is similar to the functioning of the organism.
+
+\end{abstract}
+
+\renewcommand*\abstractname{Keywords}
+\begin{abstract}
+Insuline, glucose, glucorregulatory system, mellitus diabetes, control systems, mathematical models, disturbances, simulation, authomatic glucose control.
+\end{abstract}
+
+\clearpage
+
+% Indices
+\tableofcontents
+
+\clearpage
+
+\listoffigures
+
+\clearpage
+
+\listoftables
+\clearpage
+
+
+\mainmatter
+\include{./tex/1_introduccion}
+\include{./tex/2_objetivos}
+\include{./tex/3_teoricos}
+\include{./tex/4_metodologia}
+\include{./tex/5_resultados}
+\include{./tex/6_conclusiones}
+\include{./tex/7_lineas_futuras}
+
+
+\bibliographystyle{apalike}
+\bibliography{bibliografia}
+
+\end{document}
