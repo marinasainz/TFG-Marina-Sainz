@@ -1,1 +1,32 @@
+Constituye el primer intento de modelización de los procesos fisiológicos
+durante la metabolización de la glucosa, y se llevó a cabo en los años 60.
+Se trata de un modelo lineal cuya finalidad era la detección de la diabetes.
+El Modelo de Ackerman se basa en la prueba OGTT de tolerancia oral a
+la glucosa, cuyas mediciones servirán para
+obtener el diagnóstico de la enfermedad. El objetivo además era construir
+un modelo que describiese con precision el sistema regulador de la glucosa
+en la sangre durante la prueba OGTT. Además del empleo de esta prueba,
+se debe medir el péptido C para calcular la secreción de insulina, ya sea por
+desconvolución o modelado matemático. Este modelo emplea la información
+proporcionada por dos concentraciones sanguíneas: la concentración de la
+glucosa y la de la insulina, englobando esta ultima un conjunto de hormonas.
+En [Ackerman et al., 1965], Ackerman interpretará que las hormonas que
+hacen disminuir la concentración de glucosa incrementarán la insulina,
+mientras que las que hacen el efecto contrario (elevar la glucosa), disminuirán
+los niveles de insulina. Por tanto, su conocimiento sobre la fisiología de la
+insulina y la glucosa en nuestro organismo fue clave para desarrollar el modelo.
+Aun así, como todos los modelos, presenta inconvenientes, principalmente
+en relación con el tiempo transcurrido respecto a la ingesta de glucosa.
+
+
+Ecuaciones y parámetros del Modelo de Ackerman
+El modelo es muy simple ya que requiere un número limitado de muestras
+de sangre durante la prueba OGTT. Da origen a un sistema de ecuaciones
+diferenciales prestando atención a dos concentraciones:
+- la concentración sanguínea de glucosa G(t), y
+- la concentración de insulina en plasma I(t).
+Las dos ecuaciones del modelo son:
+
+dG(t)/dt = -p1(G(t) - Gb) - p2 (I(t) - Ib)
+dI(t)/dt = p4 (Gb - G(t)) - p3(I(t) -Ib)
 
