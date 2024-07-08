@@ -1,1 +1,29 @@
 
+Este modelo aparece en 1980 de la mano de Richard N. Bergman y su
+equipo, y representa el verdadero inicio del modelado de las dinámicas glucosa
+- insulina. Su aparición se debe al aumento de los trastornos de sensibilidad
+de los tejidos a la insulina en diversas condiciones patológicas, como la
+diabetes (aunque también la obesidad o las enfermedades cardiovasculares),
+lo que hizo necesario trabajar en la cuantificación, mediante un proceso no
+invasivo, de la sensibilidad a la insulina. Se desarrolló entonces una prueba
+denominada con las siglas IVGTT  para medir esta sensibilidad,
+basada en la administración intravenosa de un bolo de glucosa y el muestreo
+frecuente de las concentraciones tanto de glucosa como de insulina en el
+paciente. La interpretación de esta prueba se lleva a cabo mediante el modelo
+fisiológico que titula este apartado: el Modelo Mínimo.
+Este modelo interpreta el organismo como un único compartimento, que
+posee una concentración basal tanto de glucosa como de insulina. Se basa
+en dos partes:
+1. Estudia la cinética de la glucosa; es decir, describe la evolución (en
+tiempo) de la concentración plasmática de glucosa. Responde a la
+pregunta de cómo reacciona la concentración de glucosa a la acción de
+la insulina.
+2. Analiza la cinética de la insulina; lo que implica la medición de la
+concentración de insulina en el plasma en función del tiempo. Esto
+se traduce en la dinámica de liberación de insulina pancreática en
+respuesta al estimulo de un aporte de glucosa. Responde a la pregunta
+de cómo reacciona la insulina a la concentración de la glucosa en
+sangre. Introduce además el efecto de una nueva variable: la insulina
+activa, X(t). De naturaleza “artificial”, se encuentra relacionada con
+dicha concentración insulínica pero que no coincide exactamente con
+ella.
